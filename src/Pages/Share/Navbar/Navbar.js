@@ -23,7 +23,7 @@ const Navbar = () => {
                 </div>
                 <Link className='btn btn-ghost normal-case text-xl' >Dashboard</Link>
                 <Link to='/login' className='btn btn-ghost normal-case text-xl' >Login</Link>
-                <Link className='btn btn-ghost normal-case text-xl' >Register</Link>
+                <Link to='/register' className='btn btn-ghost normal-case text-xl' >Register</Link>
                 <Link className='btn btn-ghost normal-case text-xl' >Logout</Link>
 
 

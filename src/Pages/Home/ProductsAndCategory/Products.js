@@ -34,6 +34,7 @@ const Products = () => {
             {bookingProduct &&
                 <BookingProduct
                     bookingProduct={bookingProduct}
+                    setBookingProduct={setBookingProduct}
                 ></BookingProduct>}
         </section>
 
