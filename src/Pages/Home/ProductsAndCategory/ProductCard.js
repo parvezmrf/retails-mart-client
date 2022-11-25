@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, setBookingProduct }) => {
     const {
         title, img, core, ram, os, org_price, offer_price,
         used_time, category: brand, seller, post_date, location
@@ -31,7 +31,11 @@ const ProductCard = ({ product }) => {
 
                     </ul>
 
-                    <button className='btn btn-outline btn-primary' > Book </button>
+                    <label
+                        htmlFor="booking-modal"
+                        className="btn btn-outline btn-primary"
+                        onClick={() => setBookingProduct(product)}
+                    >Get</label>
 
                 </div>
             </div>

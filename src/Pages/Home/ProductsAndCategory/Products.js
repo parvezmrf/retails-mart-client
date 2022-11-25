@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import BookingProduct from './BookingProduct';
 import ProductCard from './ProductCard';
 
 const Products = () => {
 
     const [products, SetProducts] = useState([])
+    const [bookingProduct, setBookingProduct] = useState(null)
 
     useEffect(() => {
         fetch('/xata2.json')
@@ -16,17 +18,25 @@ const Products = () => {
 
 
     return (
-        <div className='grid lg:grid-cols-3 gap-5 my-5' >
+        <section className=' my-5' >
+            <div className='grid lg:grid-cols-3 gap-5' >
 
-            {
-                products.map((product, idx) => <ProductCard
-                    key={idx}
-                    product={product}
-                ></ProductCard>)
-            }
+                {
+                    products.map((product, idx) => <ProductCard
+                        key={idx}
+                        product={product}
+                        setBookingProduct={setBookingProduct}
+                    ></ProductCard>)
+                }
 
 
-        </div>
+            </div>
+            {bookingProduct &&
+                <BookingProduct
+                    bookingProduct={bookingProduct}
+                ></BookingProduct>}
+        </section>
+
     );
 };
 
