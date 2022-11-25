@@ -1,25 +1,39 @@
 import React from 'react';
 
 const ProductCard = ({ product }) => {
-    const { title, img, processor, core, ram, os, org_price, used_time, category } = product;
+    const {
+        title, img, core, ram, os, org_price, offer_price,
+        used_time, category: brand, seller, post_date, location
+    } = product;
     return (
 
         <div className="card bg-base-100 shadow-xl">
 
             <figure><img className='p-3 h-60' src={img} alt="Shoes" /></figure>
             <div className="card-body">
-                <div className="badge badge-accent badge-outline"> {category} </div>
-                <div className="badge badge-accent badge-outline"> Posted </div>
                 <h2 className="card-title">{title}</h2>
 
                 <ul className='list-disc ml-6' >
-                    <li>{processor}</li>
-                    <li> {core} </li>
-                    <li> {ram} </li>
-                    <li> {os} </li>
-                </ul>
-                <p>Price: ${org_price} ({used_time} year used) </p>
+                    <div className="badge badge-accent badge-outline"> {brand}  </div>  ({used_time} year used) <br />
+                    <span>Location: {location} </span>
 
+                    <li> {core} </li>
+                    <div className='flex justify-between'>
+                        <li> {ram} </li>
+                        <li> {os} </li>
+                    </div>
+                </ul>
+                <p className='flex justify-between px-3'> <span>Price: ${offer_price}</span>  <span>Original Price: $ <span className='line-through'>{org_price}</span></span>  </p>
+                <div className='flex justify-between' >
+                    <ul>
+                        <li>Seller: {seller}</li>
+                        <li><small>Post Date: {post_date} </small> </li>
+
+                    </ul>
+
+                    <button className='btn btn-outline btn-primary' > Book </button>
+
+                </div>
             </div>
         </div>
 
