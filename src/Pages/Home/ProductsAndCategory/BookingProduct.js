@@ -17,8 +17,6 @@ const BookingProduct = ({ bookingProduct }) => {
     const today = formatDate(new Date())
     console.log(today);
 
-
-
     return (
         <>
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
@@ -37,15 +35,11 @@ const BookingProduct = ({ bookingProduct }) => {
                         <span className="label-text">Your name</span>
                         <input type="text" value='' placeholder="Type here" className="input input-bordered input-primary w-full mb-3" />
 
-
                         <span className="label-text">Your Email</span>
                         <input type="text" placeholder="Type here" className="input input-bordered input-primary w-full mb-3" />
 
-
                         <span className="label-text">Home Town</span>
                         <input type="text" placeholder="Type here" className="input input-bordered input-primary w-full mb-3" />
-
-
 
                         <input type="submit" className='btn btn-primary w-full' value="Book Now" />
                     </form>
