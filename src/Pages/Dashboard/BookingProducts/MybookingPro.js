@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminInfo from '../Dashboard/AdminInfo';
 
-const Dashboard = () => {
+const MybookingPro = () => {
     return (
         <div className='text-2xl'>
             <AdminInfo></AdminInfo>
@@ -9,4 +9,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default MybookingPro;

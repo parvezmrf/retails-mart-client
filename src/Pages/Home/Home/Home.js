@@ -9,8 +9,8 @@ const Home = () => {
     return (
         <div>
             <Slider></Slider>
-            <Sponser></Sponser>
             <Divider></Divider>
+            <Sponser></Sponser>
             <ProductsAndCategory></ProductsAndCategory>
             <Warenty></Warenty>
         </div>

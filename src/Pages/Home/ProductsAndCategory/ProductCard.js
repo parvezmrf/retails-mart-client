@@ -34,8 +34,9 @@ const ProductCard = ({ product, setBookingProduct }) => {
                     <label
                         htmlFor="booking-modal"
                         className="btn btn-outline btn-primary"
-                        onClick={() => setBookingProduct(product)}
-                    >Get</label>
+                        onClick={() => setBookingProduct(product)}>
+                        Book this
+                    </label>
 
                 </div>
             </div>

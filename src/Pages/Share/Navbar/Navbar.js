@@ -6,6 +6,7 @@ import { AuthContex } from '../../../contexts/AuthProvider';
 
 const Navbar = () => {
     const { user, userLogOut } = useContext(AuthContex);
+    console.log(user)
 
     const handleLogOut = () => {
         userLogOut()
@@ -25,7 +26,7 @@ const Navbar = () => {
 
             <div>
                 <Link to='/' className='btn btn-ghost normal-case text-xl'>Home</Link>
-                <Link className='btn btn-ghost normal-case text-xl'>Middle</Link>
+                <Link to='/asus' className='btn btn-ghost normal-case text-xl'>Asus</Link>
                 <Link className='btn btn-ghost normal-case text-xl'>Middle</Link>
             </div>
 
@@ -37,15 +38,17 @@ const Navbar = () => {
 
                 {user?.uid ?
                     <>
-                        <Link to='/dashboard' className='btn btn-ghost normal-case text-xl' >{user.displayName}</Link>
+
                         <Link to='/dashboard' className='btn btn-ghost normal-case text-xl' >Dashboard</Link>
+                        <Link to='/dashboard' className='btn btn-ghost normal-case text-xl' >{user.displayName}</Link>
                         <button onClick={handleLogOut} className='btn btn-ghost normal-case text-xl' >Logout</button>
                     </>
                     :
                     <>
                         <Link to='/login' className='btn btn-ghost normal-case text-xl' >Login</Link>
                         <Link to='/register' className='btn btn-ghost normal-case text-xl' >Register</Link>
-                    </>}
+                    </>
+                }
 
 
             </div>
