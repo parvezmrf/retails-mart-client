@@ -37,7 +37,7 @@ const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
                 console.log(data)
                 if (data.acknowledged) {
                     setBookingProduct(null)
-                    toast.success('Booking Confirmed. Goto My Booking for payment ', {
+                    toast.success('Booking Confirmed!! Go to My Booking. ', {
                         duration: 2000
                     })
 
