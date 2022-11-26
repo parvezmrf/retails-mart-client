@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContex } from '../../contexts/AuthProvider';
 
-
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { signIn } = useContext(AuthContex);

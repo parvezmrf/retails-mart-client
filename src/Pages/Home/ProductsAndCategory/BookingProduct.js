@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContex } from '../../../contexts/AuthProvider';
 import toast from 'react-hot-toast';
 
 const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
-
     const dateTime = new Date();
+    const { user } = useContext(AuthContex)
 
     const handleBooking = event => {
         event.preventDefault();
@@ -16,7 +17,7 @@ const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
 
 
 
-        const booking = {
+        const bookingFromModal = {
             product: productTitle,
             price,
             name,
@@ -24,17 +25,35 @@ const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
             location,
             dateTime
         }
+        fetch('http://localhost:5000/productsbookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(bookingFromModal)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    setBookingProduct(null)
+                    toast.success('Booking Confirmed. Goto My Booking for payment ', {
+                        duration: 2000
+                    })
 
 
-        console.log(booking)
-        toast.success('confirm')
-        setBookingProduct(null)
+                }
+            })
+
+
+        console.log(bookingFromModal)
     }
 
 
 
     return (
         <>
+
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box  max-w-xl">
@@ -49,13 +68,13 @@ const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
                     <form onSubmit={handleBooking} className='mx-auto'>
 
                         <span className="label-text">Your name</span>
-                        <input name='name' type="text" placeholder="Type here" className="input input-bordered input-primary w-full mb-3" />
+                        <input name='name' type="text" defaultValue={user?.displayName} className="input input-bordered input-primary w-full mb-3" />
 
                         <span className="label-text">Your Email</span>
-                        <input name='email' type="text" placeholder="Type here" className="input input-bordered input-primary w-full mb-3" />
+                        <input name='email' type="text" defaultValue={user?.email} className="input input-bordered input-primary w-full mb-3" disabled />
 
-                        <span className="label-text">Home Town</span>
-                        <input name='location' type="text" placeholder="Type here" className="input input-bordered input-primary w-full mb-3" />
+                        <span className="label-text">Where to deliever </span>
+                        <input name='location' type="text" placeholder="Type here" className="input input-bordered input-primary w-full mb-3" required />
 
                         <input type="submit" className='btn btn-primary w-full' value="Book Now" />
                     </form>
