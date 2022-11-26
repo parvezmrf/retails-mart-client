@@ -8,7 +8,7 @@ const Products = () => {
     const [bookingProduct, setBookingProduct] = useState(null)
 
     useEffect(() => {
-        fetch('/xata2.json')
+        fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => {
                 SetProducts(data)
