@@ -25,9 +25,9 @@ const Navbar = () => {
             </div>
 
             <div>
-                <Link to='/' className='btn btn-ghost normal-case text-xl'>Home</Link>
-                <Link to='/asus' className='btn btn-ghost normal-case text-xl'>Asus</Link>
-                <Link className='btn btn-ghost normal-case text-xl'>Middle</Link>
+                <Link to='/' className='btn btn-outline btn-primary normal-case text-xl mx-1'>Home</Link>
+                <Link to='/asus' className='btn btn-outline btn-primary normal-case text-xl mx-1'>Asus</Link>
+                <Link to='/blog' className='btn btn-outline btn-primary normal-case text-xl mx-1'>Blog</Link>
             </div>
 
             <div >
@@ -39,14 +39,15 @@ const Navbar = () => {
                 {user?.uid ?
                     <>
 
-                        <Link to='/dashboard' className='btn btn-ghost normal-case text-xl' >Dashboard</Link>
-                        <Link to='/dashboard' className='btn btn-ghost normal-case text-xl' >{user.displayName}</Link>
-                        <button onClick={handleLogOut} className='btn btn-ghost normal-case text-xl' >Logout</button>
+                        <Link to='/dashboard' className='btn btn-outline btn-primary normal-case text-xl mx-1' >Dashboard</Link>
+                        <Link to='/dashboard' className='btn btn-outline btn-primary normal-case text-xl mx-1' >{user.displayName}</Link>
+                        <button onClick={handleLogOut} className='btn btn-outline btn-primary normal-case text-xl mx-1' >Logout</button>
                     </>
                     :
                     <>
-                        <Link to='/login' className='btn btn-ghost normal-case text-xl' >Login</Link>
-                        <Link to='/register' className='btn btn-ghost normal-case text-xl' >Register</Link>
+                        <Link to='/login' className='btn btn-outline btn-primary normal-case text-xl mx-1' >Login</Link>
+                        <Link to='/register' className='btn btn-outline btn-primary normal-case text-xl mx-1' >Register</Link>
+                        <Link to='/registerseller' className='btn btn-outline btn-primary normal-case text-xl mx-1' >Register As Seller</Link>
                     </>
                 }
 

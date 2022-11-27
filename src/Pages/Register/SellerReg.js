@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from '../../contexts/AuthProvider';
 
 
-const Register = () => {
+const SellerReg = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUser } = useContext(AuthContex);
     const navigate = useNavigate()
@@ -29,7 +29,7 @@ const Register = () => {
     return (
         <div className=' flex justify-center items-center'>
             <div className='w-2/5'>
-                <h2 className='text-3xl font-bold text-center'>Register and buy any products</h2>
+                <h2 className='text-3xl font-bold text-center'>Register and sell your products</h2>
                 <form onSubmit={handleSubmit(handleRegister)}>
 
                     <div className="form-control w-full">
@@ -37,11 +37,21 @@ const Register = () => {
                         <input type='text' {...register("name", { required: "Name is required" })} className="input input-bordered w-full " />
                         {errors.name && <p role='alert' className='text-red-600'>{errors.name?.message}</p>}
                     </div>
+                    <div className="form-control w-full">
+                        <label className="label"> <span className="label-text">Phone</span></label>
+                        <input type='text' {...register("phone", { required: "Phone number is required" })} className="input input-bordered w-full " />
+                        {errors.phone && <p role='alert' className='text-red-600'>{errors.phone?.message}</p>}
+                    </div>
 
                     <div className="form-control w-full">
                         <label className="label"> <span className="label-text">Email</span></label>
                         <input type='email' {...register("email", { required: "Email is required" })} className="input input-bordered w-full " />
                         {errors.email && <p role='alert' className='text-red-600'>{errors.email?.message}</p>}
+                    </div>
+                    <div className="form-control w-full">
+                        <label className="label"> <span className="label-text">Shop Name</span></label>
+                        <input type='email' {...register("shop", { required: "Email is required" })} className="input input-bordered w-full " />
+                        {errors.shop && <p role='alert' className='text-red-600'>{errors.shop?.message}</p>}
                     </div>
 
 
@@ -56,14 +66,13 @@ const Register = () => {
                     </div>
                     <label className="label"> <span className="label-text">Forger Password?</span></label>
 
-                    <input className='btn btn-primary w-full' type="submit" value='Register' />
+                    <input className='btn btn-primary w-full' type="submit" value='Register as seller' />
                     <p>Already have an account? <Link className='text-primary' to='/login'> Login Now </Link></p>
-                    <div className="divider">OR</div>
-                    <input className='btn btn-outline btn-primary w-full' type="submit" value='Login With Google' />
+
                 </form>
             </div>
         </div>
     );
 };
 
-export default Register;
+export default SellerReg;

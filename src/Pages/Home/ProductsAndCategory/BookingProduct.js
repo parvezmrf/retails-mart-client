@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContex } from '../../../contexts/AuthProvider';
 import { Link } from "react-router-dom";
-
 import toast from 'react-hot-toast';
 
 const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
@@ -97,7 +96,7 @@ const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
                                 or
                                 <Link to='/register'> <button className='btn btn-outline btn-primary'>Register</button> </Link>
 
-                                to create any order</h3>
+                                to make any order</h3>
 
 
 

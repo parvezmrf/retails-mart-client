@@ -1,5 +1,7 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query'
+import toast from 'react-hot-toast';
+
 
 
 const AllBookingProducts = () => {
@@ -23,7 +25,7 @@ const AllBookingProducts = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        alert('delete operation succed!')
+                        toast.success('Successfully deleted')
 
                     }
                 })
