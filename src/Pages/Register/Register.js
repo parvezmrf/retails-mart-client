@@ -2,9 +2,12 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 
 const Register = () => {
+    useTitle('Register - Retails Mart')
+
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUser } = useContext(AuthContex);
     const navigate = useNavigate()
@@ -26,6 +29,10 @@ const Register = () => {
             })
             .catch((error) => console.error(error));
     }
+
+
+
+
     return (
         <div className=' flex justify-center items-center'>
             <div className='w-2/5'>
@@ -45,6 +52,7 @@ const Register = () => {
                     </div>
 
 
+
                     <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">Password</span></label>
                         <input type="password" {...register("password", {
@@ -54,6 +62,13 @@ const Register = () => {
                         {errors.password && <p role='alert' className='text-red-600'>{errors.password?.message}</p>}
 
                     </div>
+
+                    <div className="form-control w-full hidden">
+
+                        <input type='email' {...register("role", { required: "Role is required" })} defaultValue='buyer' className="input input-bordered w-full " disabled />
+
+                    </div>
+
                     <label className="label"> <span className="label-text">Forger Password?</span></label>
 
                     <input className='btn btn-primary w-full' type="submit" value='Register' />

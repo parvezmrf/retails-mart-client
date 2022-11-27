@@ -29,7 +29,7 @@ const AdminNav = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
-                    <li><Link to='/dashboard/allbooking' >Welcome to Admin Dashboard</Link ></li>
+                    <li><Link to='/dashboard/allbooking' >Admin Dashboard</Link ></li>
                     <li><Link  >{user?.email}</Link ></li>
                     <li><Link  >{user?.displayName}</Link ></li>
                 </ul>

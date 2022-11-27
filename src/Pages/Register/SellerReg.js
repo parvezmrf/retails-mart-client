@@ -2,9 +2,12 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from '../../contexts/AuthProvider';
+import useTitle from '../../hooks/useTitle';
+
 
 
 const SellerReg = () => {
+    useTitle('Seller Registration - Retails Mart')
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUser } = useContext(AuthContex);
     const navigate = useNavigate()
