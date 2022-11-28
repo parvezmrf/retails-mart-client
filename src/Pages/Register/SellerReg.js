@@ -43,7 +43,7 @@ const SellerReg = () => {
                 .then(res => res.json())
                 .then(data => {
                     console.log(data)
-                    // navigate('/')
+                    navigate('/')
                 })
         }
 

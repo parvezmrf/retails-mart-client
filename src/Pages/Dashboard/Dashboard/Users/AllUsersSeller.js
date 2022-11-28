@@ -40,6 +40,7 @@ const AllUsersSeller = () => {
                 console.log(data)
                 if (data.modifiedCount > 0) {
                     toast('Seller Verified successful')
+                    window.location.reload()
 
                 }
             })

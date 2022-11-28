@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import verify from '../../../assets/veryfied.png'
 
 const ProductCard = ({ product, setBookingProduct }) => {
     const {
         title, img, core, ram, os, org_price, offer_price,
-        used_time, category, seller, post_date, location
+        used_time, category, seller, post_date, location, email, profile
     } = product;
+
+    const [profilestatus, SetProfilestatus] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/user?email=${email}`)
+            .then(res => {
+
+                return res.json()
+            })
+            .then(data => {
+                SetProfilestatus(data)
+            })
+    }, [email])
+
+
+    console.log(profilestatus)
+
+
+
     return (
 
         <div className="card bg-base-100 shadow-xl">
@@ -26,7 +46,13 @@ const ProductCard = ({ product, setBookingProduct }) => {
                 <p className='flex justify-between px-3'> <span>Price: ${offer_price}</span>  <span>Original Price: $ <span className='line-through'>{org_price}</span></span>  </p>
                 <div className='flex justify-between' >
                     <ul>
-                        <li>Seller: {seller}</li>
+                        <li className='flex items-center'>Name: {seller}  {
+                            profilestatus.profile === "verified" ? <>
+
+                                <span> <img className='w-4 mx-1' src={verify} alt="Shoes" /> </span>
+
+                            </> : ''
+                        } </li>
 
                     </ul>
 

@@ -7,8 +7,6 @@ const AllUsers = () => {
 
     const userData = useLoaderData()
 
-    console.log(userData)
-
 
     const userDelete = id => {
         const procced = window.confirm('Want to sure delete?');
@@ -20,6 +18,7 @@ const AllUsers = () => {
                 .then(data => {
                     if (data.deletedCount > 0) {
                         toast.success('Successfully deleted')
+                        window.location.reload()
 
                     }
                 })
