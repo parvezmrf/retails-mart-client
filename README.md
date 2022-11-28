@@ -20,6 +20,12 @@ Full stack design
 
  Try on live:  https://retail-mart-cc5d8.web.app/
 
+admin User:
+
+admin@retail.com | 123456
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
