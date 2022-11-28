@@ -5,9 +5,9 @@ import { AuthContex } from '../../contexts/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
 
+const Register = () => {
+    useTitle('Register - Retails Mart')
 
-const SellerReg = () => {
-    useTitle('Seller Registration - Retails Mart')
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUser } = useContext(AuthContex);
     const navigate = useNavigate()
@@ -23,37 +23,22 @@ const SellerReg = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.phone, data.email, data.shop, data.role)
+                        navigate('/')
                     })
                     .catch((error) => console.log(error));
             })
             .catch((error) => console.error(error));
-
-
-
-        const saveUser = (name, phone, email, shop, role) => {
-            const user = { name, phone, email, shop, role };
-            fetch('http://localhost:5000/users', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(user)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    // navigate('/')
-                })
-        }
-
-
-
     }
+
+
+
+
+
+
     return (
         <div className=' flex justify-center items-center'>
             <div className='w-2/5'>
-                <h2 className='text-3xl font-bold text-center'>Register and sell your products</h2>
+                <h2 className='text-3xl font-bold text-center'>Register and buy any products</h2>
                 <form onSubmit={handleSubmit(handleRegister)}>
 
                     <div className="form-control w-full">
@@ -63,21 +48,11 @@ const SellerReg = () => {
                     </div>
 
                     <div className="form-control w-full">
-                        <label className="label"> <span className="label-text">Phone</span></label>
-                        <input type='text' {...register("phone", { required: "Phone number is required" })} className="input input-bordered w-full " />
-                        {errors.phone && <p role='alert' className='text-red-600'>{errors.phone?.message}</p>}
-                    </div>
-
-                    <div className="form-control w-full">
                         <label className="label"> <span className="label-text">Email</span></label>
                         <input type='email' {...register("email", { required: "Email is required" })} className="input input-bordered w-full " />
                         {errors.email && <p role='alert' className='text-red-600'>{errors.email?.message}</p>}
                     </div>
-                    <div className="form-control w-full">
-                        <label className="label"> <span className="label-text">Shop Name</span></label>
-                        <input type='text' {...register("shop", { required: "Shop is required" })} className="input input-bordered w-full " />
-                        {errors.shop && <p role='alert' className='text-red-600'>{errors.shop?.message}</p>}
-                    </div>
+
 
 
                     <div className="form-control w-full ">
@@ -90,22 +65,22 @@ const SellerReg = () => {
 
                     </div>
 
-                    <div className="form-control w-full hidden">
-                        <label className="label"> <span className="label-text">role</span></label>
-                        <input type='text' {...register("role")} defaultValue='seller' className="input input-bordered w-full " />
+                    <div className="form-control w-full ">
+
+                        <input type='email' {...register("role", { required: "Role is required" })} defaultValue='buyer' className="input input-bordered w-full " disabled />
 
                     </div>
 
-
                     <label className="label"> <span className="label-text">Forger Password?</span></label>
 
-                    <input className='btn btn-primary w-full' type="submit" value='Register as seller' />
+                    <input className='btn btn-primary w-full' type="submit" value='Register' />
                     <p>Already have an account? <Link className='text-primary' to='/login'> Login Now </Link></p>
-
+                    <div className="divider">OR</div>
+                    <input className='btn btn-outline btn-primary w-full' type="submit" value='Login With Google' />
                 </form>
             </div>
         </div>
     );
 };
 
-export default SellerReg;
+export default Register;

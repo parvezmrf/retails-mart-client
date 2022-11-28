@@ -7,6 +7,8 @@ const Products = () => {
 
     const [bookingProduct, setBookingProduct] = useState(null)
 
+    const [addproduct, SetAddProduct] = useState({})
+
     const { data: products = [] } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {

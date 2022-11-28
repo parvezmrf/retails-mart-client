@@ -2,10 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import MainDashboard from "../../Layout/MainDashboard";
 import AllBookingProducts from "../../Pages/Dashboard/BookingProducts/AllBookingProducts";
+import MybookingOnly from "../../Pages/Dashboard/BookingProducts/MybookingOnly";
 import MybookingPro from "../../Pages/Dashboard/BookingProducts/MybookingPro";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
+import AllUsers from "../../Pages/Dashboard/Dashboard/Users/AllUsers";
+import AllUsersSeller from "../../Pages/Dashboard/Dashboard/Users/AllUsersSeller";
 import Blog from "../../Pages/Home/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
+import AddProduct from "../../Pages/Home/ProductsAndCategory/AddProduct";
 import CategoryProduct from "../../Pages/Home/ProductsAndCategory/CategoryProduct";
 import Login from "../../Pages/Login/Login";
 import NotFound from "../../Pages/NotFound/NotFound";
@@ -50,6 +54,14 @@ export const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
+                path: 'mybooking',
+                element: <MybookingOnly></MybookingOnly>
+            },
+            {
+                path: 'addproduct',
+                element: <AddProduct></AddProduct>
+            },
+            {
                 path: 'registerseller',
                 element: <SellerReg></SellerReg>
             },
@@ -70,6 +82,21 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/allbooking',
                 element: <AllBookingProducts></AllBookingProducts>,
+            },
+            {
+                path: '/dashboard/allusers',
+                loader: () => fetch('http://localhost:5000/users'),
+                element: <AllUsers></AllUsers>,
+            },
+            {
+                path: '/dashboard/sellers',
+                loader: () => fetch('http://localhost:5000/users/seller'),
+                element: <AllUsersSeller></AllUsersSeller>,
+            },
+            {
+                path: '/dashboard/buyer',
+                loader: () => fetch('http://localhost:5000/users/buyer'),
+                element: <AllUsers></AllUsers>,
             },
         ]
 

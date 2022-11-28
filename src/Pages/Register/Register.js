@@ -6,14 +6,19 @@ import useTitle from '../../hooks/useTitle';
 
 
 const Register = () => {
-    useTitle('Register - Retails Mart')
-
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUser } = useContext(AuthContex);
     const navigate = useNavigate()
+    useTitle('Register - Retails Mart')
+
+
+    const refreshPage = () => {
+        window.location.reload(false);
+    }
 
     const handleRegister = data => {
         console.log(data)
+        console.log(data.name, data.email, data.role)
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
@@ -23,7 +28,8 @@ const Register = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        navigate('/')
+                        saveUser(data.name, data.email, data.role)
+
                     })
                     .catch((error) => console.log(error));
             })
@@ -31,13 +37,32 @@ const Register = () => {
     }
 
 
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                // navigate('/')
+            })
+    }
+
+
 
 
     return (
-        <div className=' flex justify-center items-center'>
+        <div className='flex justify-center items-center'>
             <div className='w-2/5'>
                 <h2 className='text-3xl font-bold text-center'>Register and buy any products</h2>
+
                 <form onSubmit={handleSubmit(handleRegister)}>
+
 
                     <div className="form-control w-full">
                         <label className="label"> <span className="label-text">Name</span></label>
@@ -45,12 +70,20 @@ const Register = () => {
                         {errors.name && <p role='alert' className='text-red-600'>{errors.name?.message}</p>}
                     </div>
 
+
+                    <div className="form-control w-full hidden">
+                        <label className="label"> <span className="label-text">role</span></label>
+                        <input type='text' {...register("role")} defaultValue='buyer' className="input input-bordered w-full " />
+
+                    </div>
+
+
+
                     <div className="form-control w-full">
                         <label className="label"> <span className="label-text">Email</span></label>
                         <input type='email' {...register("email", { required: "Email is required" })} className="input input-bordered w-full " />
                         {errors.email && <p role='alert' className='text-red-600'>{errors.email?.message}</p>}
                     </div>
-
 
 
                     <div className="form-control w-full ">
@@ -60,12 +93,6 @@ const Register = () => {
                             minLength: { value: 6, message: 'Password should be 6 charecter or longer' }
                         })} className="input input-bordered w-full " />
                         {errors.password && <p role='alert' className='text-red-600'>{errors.password?.message}</p>}
-
-                    </div>
-
-                    <div className="form-control w-full hidden">
-
-                        <input type='email' {...register("role", { required: "Role is required" })} defaultValue='buyer' className="input input-bordered w-full " disabled />
 
                     </div>
 

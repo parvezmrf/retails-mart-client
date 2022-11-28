@@ -3,7 +3,7 @@ import { AuthContex } from '../../../contexts/AuthProvider';
 import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
 
-const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
+const AddProduct = ({ bookingProduct, setBookingProduct }) => {
     const dateTime = new Date().toLocaleString();
     const { user } = useContext(AuthContex)
 
@@ -29,7 +29,7 @@ const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
             img
         }
         console.log(bookingFromModal)
-        fetch('http://localhost:5000/productsbookings', {
+        fetch('http://localhost:5000/addproduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -60,10 +60,10 @@ const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
 
 
 
-            <input type="checkbox" id="booking-modal" className="modal-toggle" />
+            <input type="checkbox" id="add-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box  max-w-xl">
-                    <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="add-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
                     {user?.uid ? <>
                         <h3 name='title' className="text-sm font-bold">{bookingProduct.title}</h3>
@@ -113,4 +113,4 @@ const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
     );
 };
 
-export default BookingProduct;
+export default AddProduct;

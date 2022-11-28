@@ -16,7 +16,7 @@ const AllBookingProducts = () => {
 
     console.log(data)
 
-    const reviewDelete = id => {
+    const productDelete = id => {
         const procced = window.confirm('Want to sure delete?');
         if (procced) {
             fetch(`http://localhost:5000/productsbookings/${id}`, {
@@ -63,7 +63,7 @@ const AllBookingProducts = () => {
                                 <td>{booking.price}</td>
                                 <td>{booking.location}</td>
                                 <td>Pending</td>
-                                <td> <button onClick={() => reviewDelete(booking._id)} className='btn btn-ghost' >X</button> </td>
+                                <td> <button onClick={() => productDelete(booking._id)} className='btn btn-ghost' >X</button> </td>
                             </tr>
                             )
                         }

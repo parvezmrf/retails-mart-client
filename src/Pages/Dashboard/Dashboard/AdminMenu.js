@@ -8,7 +8,9 @@ const AdminMenu = () => {
             <Link to='/dashboard' > <button className='btn btn-outline btn-primary my-1 w-48'> Home</button></Link > <br />
             <Link to='/dashboard/allbooking' ><button className='btn btn-outline btn-primary my-1 w-48'> All Booking</button></Link ><br />
 
-            <Link to='/dashboard/allbuyer' > <button className='btn btn-outline btn-primary my-1 w-48'> All Buyer</button><br /></Link >
+            <Link to='/dashboard/sellers' > <button className='btn btn-outline btn-primary my-1 w-48'>Seller Only</button></Link ><br />
+            <Link to='/dashboard/buyer' > <button className='btn btn-outline btn-primary my-1 w-48'>Buyer Only</button></Link ><br />
+            <Link to='/dashboard/allusers' > <button className='btn btn-outline btn-primary my-1 w-48'> All User</button></Link ><br />
 
         </div>
     );
