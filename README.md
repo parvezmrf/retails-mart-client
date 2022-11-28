@@ -2,6 +2,24 @@
 
 # This is Buy and sell website.
 
+Full stack design
+
+# Feature
+
+## Admin Can Manage all
+## Seller can post products
+## Buyer can buy
+
+
+## Created with 
+ ### React JS
+ ### Node JS
+ ### mongodb
+ ### tailwind css
+
+
+ Try on live:  https://retail-mart-cc5d8.web.app/
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
