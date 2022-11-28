@@ -16,7 +16,7 @@ const Navbar = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user?email=${user?.email}`)
+        fetch(`https://retails-mart-server.vercel.app/user?email=${user?.email}`)
             .then(res => {
 
                 return res.json()
@@ -81,7 +81,7 @@ const Navbar = () => {
         console.log(addProduct)
 
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://retails-mart-server.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

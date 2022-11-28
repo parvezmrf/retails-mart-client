@@ -29,7 +29,7 @@ const AddProduct = ({ bookingProduct, setBookingProduct }) => {
             img
         }
         console.log(bookingFromModal)
-        fetch('http://localhost:5000/addproduct', {
+        fetch('https://retails-mart-server.vercel.app/addproduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

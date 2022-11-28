@@ -33,7 +33,7 @@ const SellerReg = () => {
 
         const saveUser = (name, phone, email, shop, role) => {
             const user = { name, phone, email, shop, role };
-            fetch('http://localhost:5000/users', {
+            fetch('https://retails-mart-server.vercel.app/users', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

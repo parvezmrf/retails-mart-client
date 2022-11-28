@@ -32,17 +32,17 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'asus',
-                loader: () => fetch('http://localhost:5000/category/Asus'),
+                loader: () => fetch('https://retails-mart-server.vercel.app/category/Asus'),
                 element: <CategoryProduct></CategoryProduct>
             },
             {
                 path: 'dell',
-                loader: () => fetch('http://localhost:5000/category/Dell'),
+                loader: () => fetch('https://retails-mart-server.vercel.app/category/Dell'),
                 element: <CategoryProduct></CategoryProduct>
             },
             {
                 path: 'lenovo',
-                loader: () => fetch('http://localhost:5000/category/Lenovo'),
+                loader: () => fetch('https://retails-mart-server.vercel.app/category/Lenovo'),
                 element: <CategoryProduct></CategoryProduct>
             },
             {
@@ -85,17 +85,17 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allusers',
-                loader: () => fetch('http://localhost:5000/users'),
+                loader: () => fetch('https://retails-mart-server.vercel.app/users'),
                 element: <AllUsers></AllUsers>,
             },
             {
                 path: '/dashboard/sellers',
-                loader: () => fetch('http://localhost:5000/users/seller'),
+                loader: () => fetch('https://retails-mart-server.vercel.app/users/seller'),
                 element: <AllUsersSeller></AllUsersSeller>,
             },
             {
                 path: '/dashboard/buyer',
-                loader: () => fetch('http://localhost:5000/users/buyer'),
+                loader: () => fetch('https://retails-mart-server.vercel.app/users/buyer'),
                 element: <AllUsers></AllUsers>,
             },
         ]

@@ -14,7 +14,7 @@ const AllUsersSeller = () => {
     const userDelete = id => {
         const procced = window.confirm('Want to sure delete?');
         if (procced) {
-            fetch(`http://localhost:5000/users/${id}`, {
+            fetch(`https://retails-mart-server.vercel.app/users/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -31,7 +31,7 @@ const AllUsersSeller = () => {
 
 
     const handleMakeVerify = id => {
-        fetch(`http://localhost:5000/users/verify/${id}`, {
+        fetch(`https://retails-mart-server.vercel.app/users/verify/${id}`, {
             method: 'PUT',
 
         })

@@ -8,7 +8,7 @@ const AllBookingProducts = () => {
     const { data = [] } = useQuery({
         queryKey: ['productsbookings'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/productsbookings');
+            const res = await fetch('https://retails-mart-server.vercel.app/productsbookings');
             const data = res.json();
             return data
         }
@@ -19,7 +19,7 @@ const AllBookingProducts = () => {
     const productDelete = id => {
         const procced = window.confirm('Want to sure delete?');
         if (procced) {
-            fetch(`http://localhost:5000/productsbookings/${id}`, {
+            fetch(`https://retails-mart-server.vercel.app/productsbookings/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

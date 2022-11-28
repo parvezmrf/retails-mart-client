@@ -14,7 +14,7 @@ const MybookingOnly = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/mybooking?email=${user?.email}`)
+        fetch(`https://retails-mart-server.vercel.app/mybooking?email=${user?.email}`)
             .then(res => {
 
                 return res.json()
@@ -27,7 +27,7 @@ const MybookingOnly = () => {
     const bookDelete = id => {
         const procced = window.confirm('Want to sure delete?');
         if (procced) {
-            fetch(`http://localhost:5000/productsbookings/${id}`, {
+            fetch(`https://retails-mart-server.vercel.app/productsbookings/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

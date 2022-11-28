@@ -10,7 +10,7 @@ const ProductCard = ({ product, setBookingProduct }) => {
     const [profilestatus, SetProfilestatus] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/user?email=${email}`)
+        fetch(`https://retails-mart-server.vercel.app/user?email=${email}`)
             .then(res => {
 
                 return res.json()
