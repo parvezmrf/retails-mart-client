@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserCard = ({ usr, userDelete, handleMakeAdmin }) => {
     const { name, role, email, _id } = usr
-    console.log(usr)
+    // console.log(usr)
     return (
         <tr>
             <td>

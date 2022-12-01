@@ -14,7 +14,7 @@ const AllBookingProducts = () => {
         }
     })
 
-    console.log(data)
+    // console.log(data)
 
     const productDelete = id => {
         const procced = window.confirm('Want to sure delete?');

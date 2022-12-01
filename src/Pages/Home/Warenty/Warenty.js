@@ -4,13 +4,15 @@ const Warenty = () => {
     return (
         <div className='text-center my-5' >
 
-            <div className="stats shadow ">
-                <div className="stat">
-                    <div className="stat-value">Any issue with our Product ?</div>
-                    <div className="stat-title">Send your product with valid warenty card</div>
-                    <div className="stat-desc">You need to pay curiar bill</div>
-                </div>
+            <div className="shadow max-md:w-full">
+
+                <div className="stat-value">Any issue?</div>
+                <div className="stat-value">Contact us</div>
+                <div className="stat-title">Send your product with valid warenty card</div>
+                <div className="stat-desc">You need to pay curiar bill</div>
+
             </div>
+
             <div className="form-control w-full max-w-lg mx-auto">
                 <label className="label">
                     <span className="label-text">Your name</span>

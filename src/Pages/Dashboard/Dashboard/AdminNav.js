@@ -22,8 +22,8 @@ const AdminNav = () => {
 
     return (
 
-        <div className="navbar bg-base-100">
-            <div className="navbar-start">
+        <div className="navbar bg-base-100 max-md:block">
+            <div className="">
 
                 <button className="btn btn-ghost normal-case text-xl"><Link to='/'>Back to Retails Mart</Link></button>
             </div>

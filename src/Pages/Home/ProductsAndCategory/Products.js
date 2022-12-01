@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import BookingProduct from './BookingProduct';
 import ProductCard from './ProductCard';
 import { useQuery } from '@tanstack/react-query'
+import BookingReport from './BookingReport';
 
 const Products = () => {
 
     const [bookingProduct, setBookingProduct] = useState(null)
+    const [bookingRepo, setBookingRepo] = useState(null)
 
-    const [addproduct, SetAddProduct] = useState({})
+
 
     const { data: products = [] } = useQuery({
         queryKey: ['products'],
@@ -29,6 +31,7 @@ const Products = () => {
                         key={idx}
                         product={product}
                         setBookingProduct={setBookingProduct}
+                        setBookingRepo={setBookingRepo}
                     ></ProductCard>)
                 }
 
@@ -39,6 +42,13 @@ const Products = () => {
                     bookingProduct={bookingProduct}
                     setBookingProduct={setBookingProduct}
                 ></BookingProduct>}
+
+            {bookingRepo &&
+                <BookingReport
+                    bookingRepo={bookingRepo}
+                    setBookingRepo={setBookingRepo}
+                ></BookingReport>}
+
         </section>
 
     );

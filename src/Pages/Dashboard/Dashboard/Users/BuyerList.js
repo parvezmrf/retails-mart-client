@@ -4,7 +4,7 @@ import UserCard from './UserCard';
 
 const BuyerList = () => {
     const userData = useLoaderData()
-    console.log(userData)
+    // console.log(userData)
     return (
         <div className="overflow-x-auto w-full">
             Total {userData.length}

@@ -28,7 +28,7 @@ const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
             dateTime,
             img
         }
-        console.log(bookingFromModal)
+        // console.log(bookingFromModal)
         fetch('https://retails-mart-server.vercel.app/productsbookings', {
             method: 'POST',
             headers: {
@@ -38,7 +38,7 @@ const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.acknowledged) {
                     setBookingProduct(null)
                     toast.success('Booking Confirmed!!', {
@@ -50,7 +50,7 @@ const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
             })
 
 
-        console.log(bookingFromModal)
+        // console.log(bookingFromModal)
     }
 
 
@@ -72,6 +72,7 @@ const BookingProduct = ({ bookingProduct, setBookingProduct }) => {
 
                         <span className="label-text">Date of Booking (dd/mm/yyyy) </span>
                         <input type="text-5xl font-semibold" value={dateTime} className="input input-bordered w-full" disabled />
+
                         <form onSubmit={handleBooking} className='mx-auto'>
 
                             <span className="label-text">Your name</span>

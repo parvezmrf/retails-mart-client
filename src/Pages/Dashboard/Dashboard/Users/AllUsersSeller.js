@@ -5,7 +5,7 @@ import UserCardSeller from './UserCardSeller';
 
 const AllUsersSeller = () => {
     const userData = useLoaderData()
-    console.log(userData)
+    // console.log(userData)
 
 
 
@@ -37,7 +37,7 @@ const AllUsersSeller = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.modifiedCount > 0) {
                     toast('Seller Verified successful')
                     window.location.reload()

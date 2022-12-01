@@ -4,7 +4,7 @@ import UserCard from './UserCard';
 
 const SellerList = () => {
     const userData = useLoaderData()
-    console.log(userData)
+    // console.log(userData)
     return (
         <div className="overflow-x-auto w-full">
             <table className="table w-full">

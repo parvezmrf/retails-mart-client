@@ -11,7 +11,7 @@
     }
 
     const presendDate = formatDate(new Date())
-    console.log(presendDate);
+    // console.log(presendDate);
 
 
 
@@ -48,4 +48,4 @@
 
 
 
-    console.log(dateString);
+    // console.log(dateString);

@@ -7,7 +7,7 @@ const MainDashboard = () => {
     return (
         <div>
             <NavbarDashboard></NavbarDashboard>
-            <div className='flex' >
+            <div className='lg:flex' >
                 <div className='w-1/2' >
                     <AdminMenu></AdminMenu>
                 </div>

@@ -13,11 +13,11 @@ const Register = () => {
     const navigate = useNavigate()
 
     const handleRegister = data => {
-        console.log(data)
+        // console.log(data)
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                // console.log(user)
                 const userInfo = {
                     displayName: data.name
                 }

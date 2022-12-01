@@ -2,6 +2,8 @@ import React from 'react';
 
 const UserCardSeller = ({ usr, userDelete, handleMakeVerify }) => {
     const { name, role, shop, phone, email, _id, profile } = usr
+
+    // console.log(usr.profile)
     return (
         <tr>
             <td>
@@ -34,7 +36,7 @@ const UserCardSeller = ({ usr, userDelete, handleMakeVerify }) => {
             <th>
                 <button onClick={() => userDelete(_id)} className=" btn btn-primary btn-outline btn-xs">Delete</button>
 
-                {<button onClick={() => handleMakeVerify(_id)} className=" btn btn-primary btn-outline btn-xs mx-1">verify </button>}
+                {usr.profile === 'verified' ? '' : <button onClick={() => handleMakeVerify(_id)} className=" btn btn-primary btn-outline btn-xs mx-1">verify </button>}
 
                 <button className=" btn btn-primary btn-outline btn-xs">Make Admin</button>
             </th>

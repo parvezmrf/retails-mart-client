@@ -17,12 +17,12 @@ const Register = () => {
     }
 
     const handleRegister = data => {
-        console.log(data)
-        console.log(data.name, data.email, data.role)
+        // console.log(data)
+        // console.log(data.name, data.email, data.role)
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                // console.log(user)
                 const userInfo = {
                     displayName: data.name
                 }
@@ -48,7 +48,7 @@ const Register = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 navigate('/')
             })
     }
